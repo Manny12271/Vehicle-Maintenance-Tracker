@@ -1,0 +1,20 @@
+.app-container {
+  max-width: 1100px;
+  margin: auto;
+  padding: 20px;
+}
+
+h1 {
+  text-align: center;
+  color: #00aaff;
+  text-shadow: 0 0 10px rgba(0, 170, 255, 0.5);
+}
+
+nav {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+nav button {
+  margin-left: 8px;
+}
