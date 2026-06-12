@@ -174,22 +174,36 @@ function Maintenance() {
 
             <h3>Maintenance History</h3>
 
-            {records.map((record) => (
-                <div key={record.id}>
-                    <strong>{record.service_type}</strong>
+            {records.map((record) => {
+                const vehicle = vehicles.find(
+                    (v) => v.id === record.vehicle_id
+                );
 
-                    <p>Date: {record.service_date}</p>
-                    <p>Mileage: {record.mileage}</p>
-                    <p>Cost: ${record.cost}</p>
+                return (
+                    <div key={record.id}>
+                        <h4>
+                            {vehicle
+                                ? `${vehicle.year} ${vehicle.make} ${vehicle.model}`
+                                : "Unknown Vehicle"}
+                        </h4>
 
-                    <p>
-                        Next Service Due:{" "}
-                        {Number(record.mileage) + 6000} miles
-                    </p>
+                        <strong>{record.service_type}</strong>
 
-                    <hr />
-                </div>
-            ))}
+                        <p>Date: {record.service_date}</p>
+
+                        <p>Mileage: {record.mileage}</p>
+
+                        <p>Cost: ${record.cost}</p>
+
+                        <p>
+                            Next Service Due:{" "}
+                            {Number(record.mileage) + 6000} miles
+                        </p>
+
+                        <hr />
+                    </div>
+                );
+            })}
         </div>
     );
 }
